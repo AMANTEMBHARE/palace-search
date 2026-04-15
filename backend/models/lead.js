@@ -16,4 +16,5 @@ const leadSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('Lead', leadSchema);
+//module.exports = mongoose.model('Lead', leadSchema);
+module.exports = mongoose.models.Lead || mongoose.model('Lead', leadSchema);

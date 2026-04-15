@@ -17,4 +17,5 @@ const citySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('City', citySchema);
+//module.exports = mongoose.model('City', citySchema);
+module.exports = mongoose.models.City || mongoose.model('City', citySchema);

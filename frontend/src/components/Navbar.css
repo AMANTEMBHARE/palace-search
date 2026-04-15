@@ -1,0 +1,68 @@
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  transition: all 0.3s ease;
+  height: var(--nav-height);
+}
+.navbar--transparent { background: transparent; }
+.navbar--solid { background: var(--navy); box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
+.navbar--scrolled { background: var(--navy) !important; box-shadow: 0 2px 20px rgba(0,0,0,0.2) !important; }
+
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: var(--nav-height);
+}
+
+/* Logo */
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-logo-icon { width: 34px; height: 34px; color: white; flex-shrink: 0; }
+.nav-logo-name { display: block; color: white; font-size: 18px; font-weight: 900; letter-spacing: 1px; line-height: 1.1; }
+.nav-logo-tagline { display: block; color: rgba(255,255,255,0.45); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; }
+
+/* Links */
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-link { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: var(--radius-sm); transition: all 0.2s; }
+.nav-link:hover { color: white; background: rgba(255,255,255,0.1); }
+.nav-link--phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.75); }
+.nav-phone-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.7; } }
+
+/* Auth */
+.nav-auth { display: flex; align-items: center; gap: 8px; }
+.nav-user { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 5px 10px; border-radius: 30px; transition: background 0.2s; position: relative; }
+.nav-user:hover { background: rgba(255,255,255,0.1); }
+.nav-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--red); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; }
+.nav-username { color: white; font-size: 14px; font-weight: 600; }
+
+/* Dropdown */
+.nav-dropdown {
+  position: absolute; top: calc(100% + 8px); right: 0;
+  background: white; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
+  min-width: 220px; overflow: hidden; animation: fadeIn 0.15s ease;
+}
+.nav-dropdown-header { display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--gray-50); }
+.nav-dropdown-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+.nav-dropdown-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+.nav-dropdown-email { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+.nav-dropdown-divider { height: 1px; background: var(--border); }
+.nav-dropdown-item { display: flex; align-items: center; gap: 10px; width: 100%; padding: 11px 16px; font-size: 14px; color: var(--gray-700); font-weight: 500; background: none; text-align: left; transition: background 0.15s; }
+.nav-dropdown-item:hover { background: var(--gray-50); color: var(--navy); }
+.nav-dropdown-logout { color: var(--red); }
+.nav-dropdown-logout:hover { background: var(--red-light); }
+
+.nav-hamburger { display: none; background: none; border: none; color: white; padding: 6px; }
+
+/* Mobile */
+.nav-mobile { background: var(--navy); padding: 8px 0 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+.nav-mobile-link { display: block; color: rgba(255,255,255,0.8); font-size: 16px; font-weight: 600; padding: 14px 24px; transition: all 0.2s; background: none; border: none; width: 100%; text-align: left; cursor: pointer; }
+.nav-mobile-link:hover { color: white; background: rgba(255,255,255,0.08); }
+.nav-mobile-link--cta { color: var(--red) !important; }
+.nav-mobile-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 8px 0; }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-auth .btn { display: none; }
+}
+@media (max-width: 600px) {
+  .nav-logo-tagline { display: none; }
+}
